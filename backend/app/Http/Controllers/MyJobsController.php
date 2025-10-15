@@ -9,9 +9,13 @@ class MyJobsController extends Controller
     public function index(Request $request){
         return MyJobs::where('user_id',$request->user()->id)->get();
     }
-    public function show(Request $request,MyJobs $jobs)
+    public function show(Request $request,$id)
     {
-     return $jobs;   
+        $job = MyJobs::find($id);
+        if(!$job){
+            return ['message'=>'No Job Found!'];
+        }
+     return $job;   
     }
     public function store(Request $request){
         $validate = $request->validate([
