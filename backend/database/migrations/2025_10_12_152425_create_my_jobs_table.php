@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('company_name');
             $table->string('description');
             $table->string('link');
+            $table->string('status')->default('Applied');
             $table->timestamps();
         });
     }

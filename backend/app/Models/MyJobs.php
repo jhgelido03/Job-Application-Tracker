@@ -13,6 +13,6 @@ class MyJobs extends Model
     protected $guarded = [];
 
     public function user(){
-        return $this->belongsTo(AuthController::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 }
